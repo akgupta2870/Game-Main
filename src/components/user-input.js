@@ -8,6 +8,7 @@ const UserInput = (props) => {
       <div className="bg_game">
         <h2>Lets Start Game </h2>
         {/* <h2> GUESS AN NUMBER </h2> */}
+
         <form>
           <label>Team A</label>
           <br />

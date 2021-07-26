@@ -7,10 +7,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { Reducer } from "./Game2/Reducer";
+import { reducer } from "./components/reducer";
+//import { Reducer } from "./Game2/Reducer";
 
 export const store = createStore(
-  Reducer,
+  reducer,
   window._REDUX_DEVTOOL_EXTENSION_ && Window._REDUX_DEVTOOL_EXTENSION_
 );
 

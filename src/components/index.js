@@ -1,33 +1,45 @@
-import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import UserInput from "./user-input";
 import Winner from "./winner";
+import { connect } from "react-redux";
 
-const Game = () => {
-  const [name, setName] = useState({
-    player1: "",
-    player2: "",
-  });
-  const handleNameChange = (e) => {
-    setName({ ...name, player1: e.target.value });
+export const Game = (props) => {
+  const handleName1Change = (e) => {
+    props.submitPlayer1(e);
+    //setName({ ...name, player1: e.target.value });
   };
   const handleName2Change = (e) => {
-    setName({ ...name, player2: e.target.value });
+    props.submitPlayer2(e);
+    //setName({ ...name, player2: e.target.value });
   };
   return (
     <>
       <Route exact path="/">
         <UserInput
-          handleInput1Change={handleNameChange}
+          handleInput1Change={handleName1Change}
           handleInput2Change={handleName2Change}
-          player1={name.player1}
-          player2={name.player2}
+          player1={props.player1}
+          player2={props.player2}
         />
       </Route>
       <Route path="/winner">
-        <Winner player1={name.player1} player2={name.player2} />
+        <Winner player1={props.player1} player2={props.player2} />
       </Route>
     </>
   );
 };
-export default Game;
+const mapDispatchtoprops = (dispatch) => {
+  return {
+    submitPlayer1: (e) =>
+      dispatch({ type: "PLAYER1", player1: e.target.value }),
+    submitPlayer2: (e) =>
+      dispatch({ type: "PLAYER2", player2: e.target.value }),
+  };
+};
+const mapStateToProps = (state) => ({
+  player1: state.player1,
+  player2: state.player2,
+});
+export default connect(mapStateToProps, mapDispatchtoprops)(Game);
+
+//export default Game;

@@ -1,0 +1,53 @@
+.btn{
+    height: 100%;
+    background-color: #dfdad3;
+    border: none;
+    outline: none;
+    color: #dd3a3a;
+    font-weight: 600;
+    width: 14%;
+    font-size: 16px;
+    
+  }
+
+.bg_game{
+    
+      background-color: wheat;
+        height: 100vh;
+        padding:3%;
+        text-align: center;
+
+  }
+
+  .btn_save{
+    background-color: #dfdad3;
+    border: none;
+    outline: none;
+    color: #dd3e3e;
+    font-weight: 600;
+    width: 20%;
+    font-size: 16px;
+    
+  }
+
+.btn_win{
+    background-color: #dfdad3;
+    border: none;
+    outline: none;
+    color: #dd4a4a;
+    font-weight: 300;
+    width: 10%;
+    font-size: 16px;
+
+  }
+
+.bg{
+    background-color: wheat;
+    height: 100vh;
+    padding:3%;
+    text-align: center;
+
+}
+
+
+

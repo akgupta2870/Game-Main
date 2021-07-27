@@ -2,9 +2,9 @@ const initialState = {
   status: false,
 };
 
+const random = () => Math.floor(Math.random() * (10 - 1)) + 1;
+const randomnumber = random();
 export const Reducer = (state = initialState, action) => {
-  const random = () => Math.floor(Math.random() * (10 - 1)) + 1;
-  const randomnumber = random();
   console.log(randomnumber);
   switch (action.type) {
     case "SUBMIT": {

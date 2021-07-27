@@ -1,14 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
-//import { Typography } from "@material-ui/core";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const UserInput = (props) => {
+  let history = useHistory();
+  const [state, setstate] = useState("");
+  const validate = () => {
+    setstate(true);
+    if (props.player1) {
+      if (props.player2) {
+        history.push("/winner");
+      }
+    }
+  };
   return (
     <>
       <div className="bg_game">
         <h2>Lets Start Game </h2>
-        {/* <h2> GUESS AN NUMBER </h2> */}
-
         <form>
           <label>Team A</label>
           <br />
@@ -17,6 +24,7 @@ const UserInput = (props) => {
             value={props.player1}
             onChange={props.handleInput1Change}
           />
+          {!props.player1 && state && <h3>* Required </h3>}
           <br />
           <label>Team B</label>
           <br />
@@ -25,19 +33,12 @@ const UserInput = (props) => {
             value={props.player2}
             onChange={props.handleInput2Change}
           />
+          {!props.player2 && state && <h3>* Required </h3>}
           <br />
-          <Link
-            to={{
-              pathname: "/winner",
-              state: "",
-            }}
-          >
-            <button className="btn">Continue</button>
-          </Link>
+          <button onClick={validate}>SUBMIT</button>
         </form>
       </div>
     </>
   );
 };
-
 export default UserInput;
